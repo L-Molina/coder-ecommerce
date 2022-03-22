@@ -1,14 +1,14 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import NavBar from './components/NavBar';
+import Header from './components/Header';
+
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>This is an ecommerce</h1>
-        <button>Start</button>
-      </header>
+        <NavBar />
+        <Header />
     </div>
   );
 }
