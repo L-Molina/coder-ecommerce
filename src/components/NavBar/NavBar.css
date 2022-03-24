@@ -60,3 +60,15 @@
     color: #290303;
     transition: all 0.2s ease-out;
   }
+
+  .nav-meals {
+    background-color: #e0c4c4;
+    color: #290303;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25%;
+    padding: 0.5rem 1rem;
+    height: 40%;
+  }
