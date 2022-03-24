@@ -11,11 +11,8 @@
 }
 
 .list-item {
-    background-color: #e0c4c4;
-    color: #290303;
+    color: #959796;
     display: flex;
     align-items: center;
     text-align: center;
-    border-radius: 20%;
-    padding: 0.5rem 1rem;
 }
