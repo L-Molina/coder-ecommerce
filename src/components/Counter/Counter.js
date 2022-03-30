@@ -1,20 +1,61 @@
-const Counter = () => {
-    let count = 0
+import { useState, useEffect } from 'react'
+import './Counter.css'
+
+const Counter = ({initial, stock, onAdd}) => {
+    console.log(useState())
+    
+    const [count, setCount] = useState()
+    
+    useEffect(() => {
+        console.log('Se ha hecho el montaje del componente')
+        let isActive = true
+
+        setTimeout(() => {
+            if(isActive){
+                setCount(1)
+            }
+        }, 500)
+
+        return (() => {
+            isActive = false
+            console.log('Esto se ejecuta antes de montar el contador')
+        })
+    }, [])
+
+    useEffect(() => {
+        console.log('cambió el count')
+    }, [count])
+
+
+    //increment and decrement
 
     const decrement = () => {
-        count = count - 1
+        if(count > 1) {
+            setCount(count - 1)
+        }
     }
 
     const increment = () => {
-        count = count + 1
+        if(count < 9) {
+            setCount(count + 1)
+        }
     }
 
     return(
-        <div>
-            <button onClick={decrement}>-</button>
-            <p>{count}</p>
-            <button onClick={increment}>+</button>
+        <>
+        
+        <div className='counter-container'>
+            <h4>Cantidad</h4>
+            <div className='counter-wrap'>
+                <h3 className='counter-button counter-sign' onClick={decrement}>-</h3>
+                <p>{count}</p> 
+                <h3 className='counter-button counter-sign' onClick={increment}>+</h3>
+            </div>
+            <div className='counter-wrap'>
+                <h3 className='counter-button counter-text' onClick={onAdd(count)}>Agregar al carrito</h3>
+            </div>
         </div>
+        </>
     )
 }
 

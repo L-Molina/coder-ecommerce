@@ -1,7 +1,7 @@
 .list-container {
     background-image: url("../../../public/images/menu-wip.png");
     width: 100%;
-    height: 880px;
+    height: 1280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,4 +15,19 @@
     display: flex;
     align-items: center;
     text-align: center;
+}
+
+.list-button {
+    color: #959796;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 26px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.list-button:hover {
+    color: #1a1d1c;
+    background-color: #959796;
+    transition: all 0.2s ease-out;
 }
