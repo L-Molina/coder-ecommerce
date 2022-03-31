@@ -4,8 +4,8 @@ const Header = () => {
     return(
         <div className="header-container">
             <div className='header-text'>
-                <h1>OFFER OF THE WEEK</h1>
-                <h3>Spaghetti All'origano</h3>
+                <h1>Welcome to Molina's. Want a meal?</h1>
+                <h3>-"For pastas, there's nothing better" -Brett Andersen</h3>
             </div>
         </div>
     )

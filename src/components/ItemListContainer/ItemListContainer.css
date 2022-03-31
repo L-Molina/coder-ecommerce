@@ -1,23 +1,26 @@
 .list-container {
     background-image: url("../../../public/images/menu-wip.png");
     width: 100%;
-    height: 1280px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
     object-fit: contain;
+    padding: 150px 0px;
 }
 
 .list-item {
     color: #959796;
     display: flex;
+    flex-flow: column;
     align-items: center;
-    text-align: center;
+    text-align: start;
 }
 
 .list-button {
+    width: min-content;
     color: #959796;
     padding: 8px 20px;
     border-radius: 5px;
@@ -30,4 +33,10 @@
     color: #1a1d1c;
     background-color: #959796;
     transition: all 0.2s ease-out;
+}
+
+.list-image {
+    width: 20%;
+    height: auto;
+    border-radius: 50%;
 }

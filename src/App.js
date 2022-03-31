@@ -12,7 +12,7 @@ const App = () => {
       <div className="App">
         <NavBar name={title}/>
         <Header />
-        <ItemListContainer greeting="Our full list of meals will be available soon!" />
+        <ItemListContainer greeting="Here you have our full menu. Enjoy!" />
       </div>
     </>
   );
