@@ -1,13 +1,28 @@
-import "../ItemListContainer/ItemListContainer.css"
+import "./Item.css"
+import { Link } from 'react-router-dom'
 
-const Item = ({ name, img }) => {
+const Item = ({ id, name, img, price }) => {
     return (
-        <section>
+        <article>
+            <header className="list-item">
+                <h2>{name}</h2>
+            </header>
             <picture>
                 <img className="list-image" src={img} alt={name}/>
             </picture>
-            <h3>{name}<p className="list-button">...</p></h3>
-        </section>
+            <section >
+                <p className="list-item">
+                    Price: ${price}
+                </p>
+            </section>
+            <footer>
+                <h3>
+                    <Link to={`/detail/${id}`} className="list-button">
+                        See the Details
+                    </Link>
+                </h3>
+            </footer>
+        </article>
         
     )
 }

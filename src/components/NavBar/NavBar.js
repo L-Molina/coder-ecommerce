@@ -1,20 +1,34 @@
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
+import { NavLink } from 'react-router-dom'
 
 const NavBar = (props) => {
     return(
         <nav className='navbar'>
             <div className='navbar-container'>
-                <img src="../../../images/molinas-logo.png" alt="Molina's" className='navbar-logo' />
+                <NavLink to='/'>
+                    <img src="../../../images/molinas-logo.png" alt={props.title} className='navbar-logo' />
+                </NavLink>
                 <ul className='nav-menu'>
                     <li className='nav-item'>
-                        <h3 className='nav-links'>Offers</h3>
+                        <h3>
+                            <NavLink to='/list' className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>Menu</NavLink> 
+                        </h3>
                     </li>
                     <li className='nav-item'>
-                        <h3 className='nav-links'>Meals</h3>
+                        <h3>
+                            <NavLink to='/detail' className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>Details</NavLink> 
+                        </h3>
                     </li>
                     <li className='nav-item'>
-                        <h3 className='nav-links'>Drinks</h3>
+                        <h3>
+                            <NavLink to='/offers' className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>Offers</NavLink>
+                        </h3>
+                    </li>
+                    <li className='nav-item'>
+                        <h3>
+                            <NavLink to='/contact' className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>Contact Us</NavLink>
+                        </h3>
                     </li>
                 </ul>
             </div>

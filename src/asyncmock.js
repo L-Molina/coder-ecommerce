@@ -25,6 +25,15 @@ const products = [
         img: require('./images/gnocchi.png'),
         stock: 20,
         description: 'gnocchi description'
+    },
+    { 
+        id: 3,
+        name: "Linguine and Zucchini",
+        price: 1200, 
+        category: 'meals', 
+        img: require('./images/linguine-and-zucchini.png'),
+        stock: 10,
+        description: 'linguine description'
     }
 ]
 
@@ -32,6 +41,14 @@ export const getProducts = () => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(products)
+        }, 200)
+    })
+}
+
+export const getProductsById = (id) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === id))
         }, 2000)
     })
 }

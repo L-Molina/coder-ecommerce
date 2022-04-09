@@ -26,7 +26,7 @@ const ItemListContainer = (props) => {
             <div className="list-item">
                 <ItemList products={products}/>
             </div>
-            <h3 className="list-button" onClick={() => setShow(!show)}>{show ? 'Cerrar' : 'Pedir'}</h3>
+            <h3 className="list-button" onClick={() => setShow(!show)}>{show ? 'Back' : 'Order'}</h3>
             {show ? <Counter initial={0} stock={9} onAdd={handleOnAdd}/> : null}
         </div>
     )

@@ -45,14 +45,14 @@ const Counter = ({initial, stock, onAdd}) => {
         <>
         
         <div className='counter-container'>
-            <h4>Cantidad</h4>
+            <h4>Units</h4>
             <div className='counter-wrap'>
                 <h3 className='counter-button counter-sign' onClick={decrement}>-</h3>
                 <p>{count}</p> 
                 <h3 className='counter-button counter-sign' onClick={increment}>+</h3>
             </div>
             <div className='counter-wrap'>
-                <h3 className='counter-button counter-text' onClick={onAdd(count)}>Agregar al carrito</h3>
+                <h3 className='counter-button counter-text' onClick={onAdd(count)}>Add to Cart</h3>
             </div>
         </div>
         </>
