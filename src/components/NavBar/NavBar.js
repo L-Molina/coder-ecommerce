@@ -1,8 +1,18 @@
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { getCategories } from '../../asyncmock';
 
 const NavBar = (props) => {
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        getCategories().then(categories => {
+            setCategories(categories)
+        })
+    }, [])
+
     return(
         <nav className='navbar'>
             <div className='navbar-container'>
@@ -12,25 +22,10 @@ const NavBar = (props) => {
                 <ul className='nav-menu'>
                     <li className='nav-item'>
                         <h3>
-                            <NavLink to='/list' className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>Menu</NavLink> 
+                            { categories.map(cat => <NavLink key={cat.id} to={`/category/${cat.id}`} className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>{cat.description}</NavLink>)}
                         </h3>
                     </li>
-                    <li className='nav-item'>
-                        <h3>
-                            <NavLink to='/detail' className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>Details</NavLink> 
-                        </h3>
-                    </li>
-                    <li className='nav-item'>
-                        <h3>
-                            <NavLink to='/offers' className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>Offers</NavLink>
-                        </h3>
-                    </li>
-                    <li className='nav-item'>
-                        <h3>
-                            <NavLink to='/contact' className={({ isActive }) => isActive ? 'nav-links-active' : 'nav-links'}>Contact Us</NavLink>
-                        </h3>
-                    </li>
-                </ul>
+                </ul>            
             </div>
             <CartWidget />
         </nav>

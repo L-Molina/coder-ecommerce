@@ -1,49 +1,20 @@
 .list-container {
-    background-image: url("../../../public/images/menu-wip.png");
-    width: 100%;
-    height: auto;
+    background-color: #1a1d1c;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-    object-fit: contain;
-    padding: 70px 0px;
-}
-
-.list-wrap {
-    height: auto;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    object-fit: cover;
 }
 
 .list-item {
     color: #959796;
-    display: flex;
-    flex-flow: column;
     align-items: center;
     text-align: center;
-    width: auto;
-    height: auto;
 }
 
-.list-button {
-    width: fit-content;
-    height: auto;
+hr {
+    width: 60%;
     color: #959796;
-    padding: 8px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 18px;
-    text-align: center;
-    cursor: pointer;
 }
-
-.list-button:hover {
-    color: #1a1d1c;
-    background-color: #959796;
-    transition: all 0.2s ease-in-out;
-}
-
