@@ -57,9 +57,8 @@ const Select = ({options = [], onSelect}) => {
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const [typeInput, setTypeInput] = useState(true)
     const [quantity, setQuantity] = useState(true)
-    const options = [{id: 0, value: '', text: '-'}, {id: 1, value: '/', text: 'ItemListContainer'}, {id: 2, value: '/form', text: 'Form'}]
+    const options = [{id: 0, value: '', text: '-'}, {id: 1, value: '/', text: 'ItemListContainer'}, {id: 2, value: '/form', text: 'Form'}]    
     const navigate = useNavigate()
-
     const handleAdd = (count) => {
         console.log('Add To Cart')
         setQuantity(count)
@@ -94,7 +93,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 </p>
             </section>           
             <footer>
-                {/* <Select options={options} onSelect={handleSelect} /> */}
+                {<Select options={options} onSelect={handleSelect} />}
                 {quantity > 0 ? <h3><Link className='counter-button counter-text' to='/cart'>Order</Link></h3> : <Count onConfirm={handleAdd} stock={stock}/>}
             </footer>
         </article>
