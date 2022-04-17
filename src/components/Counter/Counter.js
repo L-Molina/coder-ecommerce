@@ -60,3 +60,6 @@ const Counter = ({initial, stock, onAdd}) => {
 }
 
 export default Counter
+
+{/* <p onClick={() => setShow(!show)}>{show ? 'Back' : 'Add to Cart'}</p>
+                {show ? <InputCount /> : null} */}

@@ -2,8 +2,14 @@ import "./Item.css"
 import { Link } from 'react-router-dom'
 
 const Item = ({ id, name, img, price }) => {
+
+    const handleClick = (e) => {
+        e.stopPropagation()
+        console.log('Hice click en Item')
+    }
+
     return (
-        <article>
+        <article onClick={handleClick}>
             <header className="list-item">
                 <h2>{name}</h2>
             </header>
