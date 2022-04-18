@@ -5,7 +5,7 @@ import "./ItemDetailContainer.css"
 /* import Counter from "../Counter/Counter" */
 import { useParams } from "react-router-dom"
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ setCart, cart }) => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
 
@@ -40,7 +40,7 @@ const ItemDetailContainer = () => {
                     <h1>Loading...</h1> :
                     product ?
                     <div className="detail-wrap">
-                        <ItemDetail {...product} />
+                        <ItemDetail {...product} setCart={setCart} cart={cart}/>
                     </div> :
                     <h1 className="detail-container">Product you looked for doesn't exist.</h1>
                 }

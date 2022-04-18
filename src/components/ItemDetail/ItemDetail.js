@@ -1,9 +1,10 @@
 import './ItemDetail.css'
 import '../Counter/Counter.css'
-import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useState, useContext } from 'react'
+import { Link/* , useNavigate */ } from 'react-router-dom'
+import CartContext from '../../context/CartContext'
 
-const InputCount = ({onConfirm, stock, initial=1}) => {
+/* const InputCount = ({onConfirm, stock, initial=1}) => {
     const [count, setCount] = useState(initial)
     const handleChange = (e) => {
         if(e.target.value > 0 && e.target.value <= stock) {
@@ -17,10 +18,10 @@ const InputCount = ({onConfirm, stock, initial=1}) => {
             <h3 className='counter-button counter-sign' onClick={() => onConfirm(count)}>Agregar al carrito</h3>
         </div>
     )
-}
+} */
 
-const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
-    const [count, setCount] = useState(initial)
+const ButtonCount = ({ onConfirm, stock }) => {
+    const [count, setCount] = useState(1)
 
     const increment = () => {
         if(count < stock) {
@@ -46,35 +47,39 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
     )
 }
 
-const Select = ({options = [], onSelect}) => {
+/* const Select = ({ options = [], onSelect}) => {
     return(
         <select onChange={(e) => onSelect(e.target.value)}>
             {options.map(o => <option key={o.id} value={o.value}>{o.text}</option>)}
         </select>
     )
-}
+} */
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-    const [typeInput, setTypeInput] = useState(true)
-    const [quantity, setQuantity] = useState(true)
-    const options = [{id: 0, value: '', text: '-'}, {id: 1, value: '/', text: 'ItemListContainer'}, {id: 2, value: '/form', text: 'Form'}]    
-    const navigate = useNavigate()
+/*     const [typeInput, setTypeInput] = useState(true)
+ *//*  const options = [{id: 0, value: '', text: '-'}, {id: 1, value: '/', text: 'ItemListContainer'}, {id: 2, value: '/form', text: 'Form'}] */    
+/*  const navigate = useNavigate() */
+
+    const { addItem, isInCart } = useContext(CartContext)
+
     const handleAdd = (count) => {
-        console.log('Add To Cart')
-        setQuantity(count)
+        const objProd = {
+            id, name, price
+        }
+        addItem({...objProd, quantity: count})
     }
 
-    const handleSelect = (value) => {
+    /* const handleSelect = (value) => {
         navigate(value)
-    }
+    } */
 
-    const Count = typeInput ? ButtonCount : InputCount
-     
+/*     const Count = typeInput ? ButtonCount : InputCount
+ */     
     return (
         <article className="list-item">
             <header>
-                <h3 className='counter-button' onClick={() => setTypeInput(!typeInput)}>Change Counter</h3>
-                <h2>
+{/*                 <h3 className='counter-button' onClick={() => setTypeInput(!typeInput)}>Change Counter</h3>
+ */}                <h2>
                     {name}
                 </h2>
             </header>
@@ -93,8 +98,8 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 </p>
             </section>           
             <footer>
-                {<Select options={options} onSelect={handleSelect} />}
-                {quantity > 0 ? <h3><Link className='counter-button counter-text' to='/cart'>Order</Link></h3> : <Count onConfirm={handleAdd} stock={stock}/>}
+                {/* <Select options={options} onSelect={handleSelect} /> */}
+                { isInCart(id) ? <h3><Link className='counter-button counter-text' to='/cart'>Go to Cart</Link></h3> : <ButtonCount onConfirm={handleAdd} stock={stock}/>}
             </footer>
         </article>
     )
