@@ -4,9 +4,9 @@ import { getProducts } from "../../asyncmock"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 
-const ItemListContainer = (props) => {
-
+const ItemListContainer = () => {
     const [products, setProducts] = useState([])
+    const [title, setTitle] = useState()
 
     const { categoryId } = useParams()
     
@@ -18,28 +18,23 @@ const ItemListContainer = (props) => {
         })
     }, [categoryId])
 
-    /* const handleOnResize = () => {
-        console.log('Cambio el tamaño de ItemListContainer')
-    }
-
     useEffect(() => {
-        window.addEventListener('resize', handleOnResize)
-        return(() => {
-            window.removeEventListener('resize', handleOnResize)
-        })
-    }) */
+        setTimeout(() => {
+            setTitle('Here, for your enjoyment!')
+        }, 1000)
+    })
     const handleClick = () => {
         console.log('Hice click en ItemListContainer')
     }
 
     return(
         <div className="list-container">
-            <h1 className="list-item">{props.greeting}</h1>
-            <hr/>
+            <h1 className="list-item">{title}</h1>
+            <hr className="list-line"/>
             <div className="list-item" onClick={handleClick}>
                 <ItemList products={products}/>
             </div>
-            <hr/>
+            <hr className="list-line"/>
         </div>
     )
 } 

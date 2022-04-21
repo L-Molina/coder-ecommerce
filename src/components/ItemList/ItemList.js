@@ -1,4 +1,5 @@
 import Item from '../Item/Item'
+import { memo } from 'react'
 import "./ItemList.css"
 
 const ItemList = ({products}) => {
@@ -11,4 +12,4 @@ const ItemList = ({products}) => {
     )
 }
 
-export default ItemList
+export default memo(ItemList, (oldProps, newProp) => {})

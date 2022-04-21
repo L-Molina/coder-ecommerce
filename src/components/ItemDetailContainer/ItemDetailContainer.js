@@ -2,7 +2,6 @@ import { getProductsById } from "../../asyncmock"
 import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
-/* import Counter from "../Counter/Counter" */
 import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = ({ setCart, cart }) => {
@@ -26,23 +25,33 @@ const ItemDetailContainer = ({ setCart, cart }) => {
         })
 
     }, [productId])
-    
-    /* const [show, setShow] = useState(true)
-    
-    const handleOnAdd = (quantity) => {
-        console.log(`Se han agregado ${quantity} productos al carrito`)
-    } */
+
+    if(loading) {
+        return (
+            <div className="detail-container">
+                <div className="detail-wrap">
+                    <hr/>
+                    <h3>Loading...</h3>
+                    <hr />
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="detail-container">
                 {
-                    loading ?
-                    <h1>Loading...</h1> :
                     product ?
-                    <div className="detail-wrap">
-                        <ItemDetail {...product} setCart={setCart} cart={cart}/>
-                    </div> :
-                    <h1 className="detail-container">Product you looked for doesn't exist.</h1>
+                        <div className="detail-wrap">
+                            <hr />
+                            <ItemDetail {...product} setCart={setCart} cart={cart}/>
+                            <hr />
+                        </div> :
+                        <div className="detail-wrap">
+                            <hr />
+                            <h3>Product you looked for doesn't exist.</h3>
+                            <hr />
+                        </div>
                 }
         </div>
     )
