@@ -1,0 +1,40 @@
+.list-item {
+    color: #959796;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+.list-button {
+    width: fit-content;
+    height: auto;
+    color: #959796;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.list-button:hover {
+    color: #1a1d1c;
+    background-color: #959796;
+    transition: all 0.2s ease-in-out;
+}
+
+.list-image {
+    width: auto;
+    height: 250px;
+    border-radius: 50%;
+    padding: 45px;
+}
+
+.list-image:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(1turn);
+}

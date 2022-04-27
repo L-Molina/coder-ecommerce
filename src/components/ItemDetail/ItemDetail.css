@@ -1,0 +1,22 @@
+.list-item {
+    color: #959796;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+.list-image {
+    width: auto;
+    height: 250px;
+    border-radius: 50%;
+    padding: 45px;
+}
+
+.list-image:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(1turn);
+}
