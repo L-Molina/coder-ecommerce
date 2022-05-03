@@ -14,7 +14,7 @@ const ItemListContainer = () => {
     useEffect(() => {
         const collectionRef = categoryId
             ? query(collection(firestoreDb, 'products'), where('category', '==', categoryId))
-            : query(collection(firestoreDb, 'products'), orderBy("name", "desc"), limit(5))
+            : query(collection(firestoreDb, 'products'), orderBy("order"), limit(5))
 
         getDocs(collectionRef).then(response => {
             console.log(response)

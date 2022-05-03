@@ -3,7 +3,7 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
 import { useParams } from "react-router-dom"
 import { firestoreDb } from "../../services/firebase"
-import { getDoc, doc, orderBy, query } from "firebase/firestore"
+import { getDoc, doc } from "firebase/firestore"
 
 const ItemDetailContainer = ({ setCart, cart }) => {
     const [product, setProduct] = useState()
@@ -11,9 +11,8 @@ const ItemDetailContainer = ({ setCart, cart }) => {
 
     const { productId } = useParams()
     
-
     useEffect(() => {
-        getDoc(query(doc(firestoreDb, 'products', productId), orderBy("order", "desc"))).then(response => {
+        getDoc(doc(firestoreDb, 'products', productId)).then(response => {
             console.log(response)
             const product = { id: response.id, ...response.data()}
             setProduct(product)
