@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyANtqAkmjSYRxFW7EQoznu5qBExCHw7uyE",
-  authDomain: "molina-ss.firebaseapp.com",
-  projectId: "molina-s",
-  storageBucket: "molina-s.appspot.com",
-  messagingSenderId: "700621102267",
-  appId: "1:700621102267:web:1208f01a5d0eca886cdd9e"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 const app = initializeApp(firebaseConfig);
