@@ -136,4 +136,4 @@ Categories: Shows off the different categories of products.
 
 Here's a highlight of how it looks like to navigate the platform!
 
-![Molina's GIF](require(https://github.com/L-Molina/coder-ecommerce/main/public/React-gif.gif))
+![Molina's GIF](https://github.com/L-Molina/coder-ecommerce/blob/dfcd0c249559064cc7033af3b0c51ac3cd2b1182/public/React-gif.gif "Molina's GIF")
